@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Editar Playlist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Editar Playlist</h1>
+        </div>
+        <br>
+        <form th:action="@{/playlists/editar/{codigo}(codigo=${playlist.codigo})}" th:object="${playlist}" method="post">
+            <div class="form-group">
+                <label for="codigo">Código</label>
+                <input type="text" class="form-control" id="codigo" th:field="*{codigo}" readonly/>
+            </div>
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" class="form-control" id="titulo" th:field="*{titulo}"/>
+            </div>
+            <div class="form-group">
+                <label for="interprete">Intérprete</label>
+                <input type="text" class="form-control" id="interprete" th:field="*{interprete}"/>
+            </div>
+            <div class="form-group">
+                <label for="cantidadTemas">Cantidad de Temas</label>
+                <input type="text" class="form-control" id="cantidadTemas" th:field="*{cantidadTemas}"/>
+            </div>
+            <div class="form-group">
+                <label for="duracionTotal">Duración Total</label>
+                <input type="text" class="form-control" id="duracionTotal" th:field="*{duracionTotal}"/>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </form>
+    </div>
+</body>
+</html>
